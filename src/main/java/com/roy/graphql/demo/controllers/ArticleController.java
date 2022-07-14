@@ -1,6 +1,7 @@
 package com.roy.graphql.demo.controllers;
 
 import com.roy.graphql.demo.models.Article;
+import com.roy.graphql.demo.models.NewArticle;
 import com.roy.graphql.demo.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -10,6 +11,7 @@ import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Controller
@@ -32,10 +34,10 @@ public class ArticleController {
         return articleService.getAllArticles();
     }
 
-//    @MutationMapping
-//    public List<Article> addArticle(@Argument Article article){
-//        return articleService.add(article);
-//    }
+    @MutationMapping
+    public List<Article> addArticle(@Argument(name = "input") NewArticle article){
+        return articleService.add(new Article(UUID.randomUUID().toString(),article.getTitle(),article.getText()));
+    }
 
 
 }

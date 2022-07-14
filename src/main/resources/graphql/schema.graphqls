@@ -5,6 +5,13 @@ type Article{
     author:Author
 }
 
+input NewArticle{
+    title:String
+    text:String,
+
+}
+
+
 type Author{
    name:String
 }
@@ -13,4 +20,9 @@ type Author{
 type Query{
  article(id:ID!):Article!
  allArticles:[Article]
+}
+
+
+type Mutation{
+ addArticle(input : NewArticle): [Article]
 }
