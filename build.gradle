@@ -1,0 +1,28 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application{
+    mainClassName = 'com.roy.graphql.demo.Application'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-graphql:2.7.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}

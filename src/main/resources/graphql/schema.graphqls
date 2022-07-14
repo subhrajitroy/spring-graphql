@@ -1,0 +1,16 @@
+type Article{
+    id:ID
+    title:String
+    text:String,
+    author:Author
+}
+
+type Author{
+   name:String
+}
+
+
+type Query{
+ article(id:ID!):Article!
+ allArticles:[Article]
+}
