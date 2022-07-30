@@ -1,6 +1,7 @@
 package com.roy.graphql.demo.controllers;
 
 import com.roy.graphql.demo.models.Article;
+import com.roy.graphql.demo.models.Author;
 import com.roy.graphql.demo.models.NewArticle;
 import com.roy.graphql.demo.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class ArticleController {
 
     @SchemaMapping(typeName = "Query",field = "article")
     public Article getArticle(@Argument String id){
+        System.out.println("Getting article with id " + id);
         return articleService.getArticle(id);
     }
 
@@ -39,5 +41,10 @@ public class ArticleController {
         return articleService.add(new Article(UUID.randomUUID().toString(),article.getTitle(),article.getText()));
     }
 
+    @SchemaMapping(field = "author")
+    public Author getAuthor(Article article){
+        System.out.println("Getting author  for article " + article.getId());
+        return new Author("John J");
+    }
 
 }

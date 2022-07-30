@@ -19,6 +19,8 @@ application{
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-graphql:2.7.0'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.1'
+    runtimeOnly('org.postgresql:postgresql:42.2.17')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
